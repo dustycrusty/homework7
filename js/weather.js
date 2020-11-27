@@ -40,7 +40,7 @@ function gettingJSON(){
         params["q"] = location;
     };
 
-    var url = "http://api.openweathermap.org/data/2.5/weather?";
+    var url = "https://api.openweathermap.org/data/2.5/weather?";
     var stringified =new URLSearchParams(params).toString();
     query = url + stringified;
     console.log("Query is :" + query);
@@ -65,7 +65,7 @@ function gettingJSON(){
         console.log(JSON.stringify(json));
         loc.textContent = json["name"];
         temp.textContent = json["main"]["temp"];
-        tempImg.src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png";
+        tempImg.src = "https://openweathermap.org/img/w/" + json.weather[0].icon + ".png";
         document.getElementById("forecast").style.display = "block";
         tempImg.alt = json.weather[0]["description"];
     });
