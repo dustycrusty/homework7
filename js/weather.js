@@ -64,8 +64,8 @@ function gettingJSON(){
         // Your code here.
         console.log(JSON.stringify(json));
         loc.textContent = json["name"];
-        temp.textContent = json["main"]["temp"];
-        tempImg.src = "https://openweathermap.org/img/w/" + json.weather[0].icon + ".png";
+        temp.textContent = json["main"]["temp"] + " with " + json.weather[0]["description"];
+        tempImg.src = "http://openweathermap.org/img/wn/" + json.weather[0].icon + ".png";
         document.getElementById("forecast").style.display = "block";
         tempImg.alt = json.weather[0]["description"];
     });
