@@ -1,6 +1,7 @@
 function gettingJSON(){
     //Display the forecast
     // Your code here.
+    document.getElementById("forecast").style.display = "block";
 
     //Set default location if one isn't provided
     let location;
@@ -10,6 +11,9 @@ function gettingJSON(){
         location = "Ann Arbor";
     } else {
         location = document.getElementById("location").value;
+        if (location.match(/^([0-9]){5}/)) {
+            location = location + ",US";
+        }
     };
     console.log("Location is : " + location);
 
@@ -66,7 +70,7 @@ function gettingJSON(){
         loc.textContent = json["name"];
         temp.textContent = json["main"]["temp"] + " with " + json.weather[0]["description"];
         tempImg.src = "http://openweathermap.org/img/wn/" + json.weather[0].icon + ".png";
-        document.getElementById("forecast").style.display = "block";
+        
         tempImg.alt = json.weather[0]["description"];
     });
 }
